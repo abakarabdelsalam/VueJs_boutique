@@ -19,17 +19,7 @@
 
 <script>
 export default {
-  data() {
-    return {
-      product: {
-        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS7ekQ3gBH4qgpA_rFjIi5BRHelutd--Q0xhf76XENxHC_gpsIZA",
-        title: "MacBook",
-        description:
-          "D'une finesse et d'une légèreté hors du commun, le MacBook Pro est encore plus rapide et plus puissant qu'avant.",
-        price: "1500 €",
-      },
-    };
-  },
+  props: ["product"],
 };
 </script>
 
