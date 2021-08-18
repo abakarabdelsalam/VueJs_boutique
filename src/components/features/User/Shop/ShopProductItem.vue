@@ -1,5 +1,5 @@
 <template>
-  <div class="w-25 p-3 product-container d-flex flex-column">
+  <div class="w-25 p-1 product-container d-flex flex-column">
     <div>
       <h3>{{ product.title }}</h3>
       <hr />
@@ -19,6 +19,7 @@
         Commander
       </button>
     </div>
+    <br />
   </div>
 </template>
 

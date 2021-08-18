@@ -1,5 +1,5 @@
 <template>
-  <shop-products-list :products="products" class="p-3"></shop-products-list>
+  <shop-products-list :products="products" class="p-5"></shop-products-list>
 </template>
 
 

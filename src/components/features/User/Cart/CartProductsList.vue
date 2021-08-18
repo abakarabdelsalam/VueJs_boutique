@@ -1,8 +1,8 @@
 
 
 <template>
-  <div class="d-flex flex-column flex-wrap p-1">
-    <h5 class="border-bottom pb-5">Mon panier</h5>
+  <div class="d-flex flex-column flex-wrap p-5">
+    <h5 class="border-bottom pb-1">Mon panier</h5>
     <cart-product-item
       v-for="item in cart"
       :key="item.id"

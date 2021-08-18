@@ -39,7 +39,7 @@ export const eventBus = new Vue({
     cart: [
 
     ],
-    page: "User"
+    page: "admin"
   },
 
   methods: {
@@ -49,6 +49,11 @@ export const eventBus = new Vue({
         this.cart = [...this.cart, product];
         this.$emit('update:cart', this.cart);
       }
+
+    },
+    addProduct(product) {
+      this.products = [...this.products, { ...product, id: this.products.length + 1 + '' }],
+        this.$emit('update:products', this.products);
     },
     removeItemFromCart(item) {
       this.cart = this.cart.slice().filter(e => e.id !== item.id);
@@ -58,6 +63,7 @@ export const eventBus = new Vue({
       this.page = page;
       this.$emit('update:page', this.page);
     }
+
 
   }
 
