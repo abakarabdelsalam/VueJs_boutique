@@ -10,10 +10,16 @@
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#">Boutique</a>
+          <a
+            class="nav-link"
+            @click="changePage('User')"
+            :class="{ active: page === 'User' }"
+            href="#"
+            >Boutique</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Admin</a>
+          <a class="nav-link" @click="changePage('Admin')" href="#">Admin</a>
         </li>
       </ul>
     </div>
@@ -21,8 +27,28 @@
 </template>
 
 <script>
-export default {};
+import { eventBus } from "../main";
+export default {
+  data() {
+    return {
+      page: eventBus.page,
+    };
+  },
+  methods: {
+    changePage(page) {
+      eventBus.changePage(page);
+    },
+  },
+  created() {
+    eventBus.$on("update:page", (page) => {
+      this.page = page;
+    });
+  },
+};
 </script>
 
-<style>
+<style scoped>
+a {
+  cursor: pointer;
+}
 </style>
