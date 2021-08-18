@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { eventBus } from "../../main";
+import { eventBus } from "../../../../main";
 import CartProductsList from "./CartProductsList.vue";
 export default {
   components: {

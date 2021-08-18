@@ -1,26 +1,24 @@
 <template>
   <div id="app">
     <the-header></the-header>
-    <div class="d-flex flex-row">
-      <shop class="w-75"></shop>
-      <cart class="w-25"></cart>
-    </div>
+    <user></user>
+    <admin></admin>
   </div>
 </template>
 
 
 
 <script>
-import TheHeader from "./components/TheHeader.vue";
-import Cart from "./components/Cart/Cart.vue";
-import Shop from "./components/Shop/Shop.vue";
+import TheHeader from "./components/TheHeader";
+import User from "./components/features/User/User";
+import Admin from "./components/features/Admin/Admin";
 
 export default {
   name: "App",
   components: {
     TheHeader,
-    Cart,
-    Shop,
+    User,
+    Admin,
   },
 };
 </script>
