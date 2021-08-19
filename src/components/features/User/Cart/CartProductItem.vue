@@ -2,7 +2,7 @@
   <div class="d-flex flex-row justify-content-between p-2 px-3">
     <span>{{ item.title }}</span>
     <span
-      ><strong>{{ item.price }} €</strong></span
+      ><strong>{{ item.price | price }}</strong></span
     >
     <button @click="removeItemFromCart" class="close">
       <span>&times;</span>
