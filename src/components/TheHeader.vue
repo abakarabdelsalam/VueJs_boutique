@@ -5,9 +5,9 @@
       LOGO
     </a>
     <button class="navbar-toggler">
-      <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon" v-trigger-collapse="'collapse'"></span>
     </button>
-    <div class="collapse navbar-collapse">
+    <div id="collapse" class="collapse navbar-collapse">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
           <a
@@ -43,6 +43,24 @@ export default {
     eventBus.$on("update:page", (page) => {
       this.page = page;
     });
+  },
+  directives: {
+    triggerCollapse: {
+      inserted(el, binding) {
+        window.addEventListener("click", () => {
+          nav.classList.remove("show");
+        });
+        const nav = document.querySelector("#" + binding.value);
+        el.addEventListener("click", (e) => {
+          if (nav.classList.contains("show")) {
+            nav.classList.remove("show");
+          } else {
+            nav.classList.add("show");
+          }
+          e.stopPropagation();
+        });
+      },
+    },
   },
 };
 </script>
