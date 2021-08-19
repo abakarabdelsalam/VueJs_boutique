@@ -2,7 +2,7 @@
   <div id="app">
     <the-header></the-header>
     <div class="d-flex flex-column w-100"></div>
-    <component :is="page"></component>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -11,15 +11,11 @@
 <script>
 import { eventBus } from "./main";
 import TheHeader from "./components/TheHeader";
-import User from "./components/features/User/User";
-import Admin from "./components/features/Admin/Admin";
 
 export default {
   name: "App",
   components: {
     TheHeader,
-    User,
-    Admin,
   },
   data() {
     return {

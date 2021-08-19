@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import router from './router';
 import App from './App.vue'
 import * as Filters from './utils/filters'
 
@@ -79,5 +80,6 @@ export const eventBus = new Vue({
 })
 
 new Vue({
+  router,
   render: h => h(App),
 }).$mount('#app')

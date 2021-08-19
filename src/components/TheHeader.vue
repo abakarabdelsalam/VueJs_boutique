@@ -14,16 +14,10 @@
       <div id="collapse" class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a
-              class="nav-link"
-              @click="changePage('User')"
-              :class="{ active: page === 'User' }"
-              href="#"
-              >Boutique</a
-            >
+            <router-link class="nav-link" to="/shop">Boutique</router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" @click="changePage('Admin')" href="#">Admin</a>
+            <router-link class="nav-link" to="/admin">Admin</router-link>
           </li>
         </ul>
       </div>
@@ -32,23 +26,7 @@
 </template>
 
 <script>
-import { eventBus } from "../main";
 export default {
-  data() {
-    return {
-      page: eventBus.page,
-    };
-  },
-  methods: {
-    changePage(page) {
-      eventBus.changePage(page);
-    },
-  },
-  created() {
-    eventBus.$on("update:page", (page) => {
-      this.page = page;
-    });
-  },
   directives: {
     triggerCollapse: {
       inserted(el, binding) {
@@ -86,5 +64,8 @@ a {
 }
 .v-enter-active {
   animation: fromtop 1s;
+}
+.router-link-active {
+  font-weight: bold;
 }
 </style>
