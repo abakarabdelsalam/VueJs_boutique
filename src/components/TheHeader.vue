@@ -1,29 +1,34 @@
 <template>
-  <nav class="navbar navbar-light bg-light navbar-expand-lg">
-    <a class="navbar-brand" href="#">
-      <img src="../assets/logo.png" width="30" height="30" />
-      LOGO
-    </a>
-    <button class="navbar-toggler">
-      <span class="navbar-toggler-icon" v-trigger-collapse="'collapse'"></span>
-    </button>
-    <div id="collapse" class="collapse navbar-collapse">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            @click="changePage('User')"
-            :class="{ active: page === 'User' }"
-            href="#"
-            >Boutique</a
-          >
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" @click="changePage('Admin')" href="#">Admin</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+  <transition appear>
+    <nav class="navbar navbar-light bg-light navbar-expand-lg">
+      <a class="navbar-brand" href="#">
+        <img src="../assets/logo.png" width="30" height="30" />
+        LOGO
+      </a>
+      <button class="navbar-toggler">
+        <span
+          class="navbar-toggler-icon"
+          v-trigger-collapse="'collapse'"
+        ></span>
+      </button>
+      <div id="collapse" class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              @click="changePage('User')"
+              :class="{ active: page === 'User' }"
+              href="#"
+              >Boutique</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" @click="changePage('Admin')" href="#">Admin</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </transition>
 </template>
 
 <script>
@@ -65,8 +70,21 @@ export default {
 };
 </script>
 
+
+
 <style scoped>
 a {
   cursor: pointer;
+}
+@keyframes fromtop {
+  from {
+    /* transform: translateY(-20px); */
+    transform: rotate(-180deg);
+  }
+  to {
+  }
+}
+.v-enter-active {
+  animation: fromtop 1s;
 }
 </style>
