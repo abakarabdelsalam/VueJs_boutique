@@ -30,17 +30,17 @@ export const eventBus = new Vue({
 
     },
     addProduct(product) {
-      this.products = [...this.products, { ...product, id: this.products.length + 1 + '' }],
-        this.$emit('update:products', this.products);
+      this.$http.post('products.json', product)
+        .then(() => {
+          this.products = [...this.products, { ...product, id: this.products.length + 1 + '' }],
+            this.$emit('update:products', this.products);
+        })
     },
     removeItemFromCart(item) {
       this.cart = this.cart.slice().filter(e => e.id !== item.id);
       this.$emit('update:cart', this.cart);
     },
-    changePage(page) {
-      this.page = page;
-      this.$emit('update:page', this.page);
-    },
+
     addProducts(products) {
       this.products = products
       this.$emit('update:products', this.products);
